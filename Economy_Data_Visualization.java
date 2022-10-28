@@ -6,5 +6,6 @@ public class Economy_Data_Visualization {
         System.out.println("Hello World!!");
         System.out.println("Let's make a nice project");
         System.out.println("Hey");
+        System.out.println("Hello World");
     }
 }
