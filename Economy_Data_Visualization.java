@@ -1,11 +1,11 @@
 import Development_Indicators.*;
 import Assets_Indicators.*;
+import static java.lang.System.*;
+import java.util.Scanner;
+
 public class Economy_Data_Visualization {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!!");
-        System.out.println("Let's make a nice project");
-        System.out.println("Hey");
-        System.out.println("Hello World");
+        Scanner sc=new Scanner(in);
     }
 }
