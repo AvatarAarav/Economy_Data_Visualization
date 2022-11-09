@@ -1,0 +1,14 @@
+
+We will use try catch while reading csv files.If file does'nt exist it will give error 
+ 
+At least one Abstract Class/Interface - Not for namesake, but a true design element. 
+{}
+At least one Overridden method. Also, override toString, equals and hashcode as necessary.
+{}
+At least one Object Composition - For example, there could be a course class, which has an array of students belonging to that course.
+{}
+Properly organize your code into packages/subpackages. Do NOT write all code in a single class file.
+{}
+Include try-catch statements and throws statements as necessary for elegant exception handling.
+{we can add exception on weird searching}
+
