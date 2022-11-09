@@ -1,24 +1,25 @@
 package Development_Indicators;
 
-interface indicator{
-    void setvalue(double val);
+interface Development{
     void setyear(int year);
+    void setvalue(long value);
 
+    long getvalue();
     int getyear();
-    double getvalue();
+
 }
-public abstract class Development_Indicators implements indicator{
-    protected double value;
+
+public abstract class Assets_Indicators implements Development {
+    protected long value ;
     protected int year;
 
     @Override
-    public double getvalue(){
+    public long getvalue(){
         return this.value;
     }
     @Override
     public int getyear(){
         return this.year;
     }
-
 
 }
