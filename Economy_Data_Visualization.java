@@ -5,6 +5,7 @@ import Development_Indicators.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import java.util.concurrent.Exchanger;
 
 interface search {
@@ -91,10 +92,17 @@ class country implements search, search_assets  {
 
 
 
+
+
 public class Economy_Data_Visualization {
         static ArrayList<country> Countries = new ArrayList<country>();
 
-     public static void main(String[] args) {
+    
+
+
+
+    public static void main(String[] args)
+    {
 
         Scanner sc=new Scanner(in);
     }
