@@ -158,8 +158,8 @@ class DBFunctions
     }
     public static void main(String args[])
     {
-        //out.println(doesDBexists("SupaStrikas"));
-        //createDB("SupaStrikas");
+        out.println(doesDBexists("SupaStrikas"));
+        createDB("SupaStrikas");
         createTable();
     }
 }
