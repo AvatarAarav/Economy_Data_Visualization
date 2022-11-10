@@ -8,16 +8,14 @@ class DBFunctions
 {
     static final String url = "jdbc:mysql://localhost:3306/";
     static final String username = "root";
-    static final String pwd = "root12345";
+    static final String pwd = "28062004";
 
     static boolean doesDBexists(String dbName)
     {
         Connection con = null;
         ResultSet rs = null;
-
         try{
             con = ConnectionProvider.getConnection(url, username, pwd);
-
             if(con != null)
             {
                 rs = con.getMetaData().getCatalogs();
@@ -81,25 +79,25 @@ class DBFunctions
     static void createTable()
     {
         Connection con = null;
-        String dbName = "economicdata";
-        //createDB(dbName);
+        String dbName = "EconomicData";
+        createDB(dbName);
         try {
             String turl = url + dbName;
             con = ConnectionProvider.getConnection(turl, username, pwd);
 
-//            String q = "create table ConsumerPriceIndex( Country_Name varchar(30), Country_Code varchar(10) primary key, " +
-//                        "Indicator_Name varchar(30), Indicator_Code varchar(20)";
-//            for(int i=1960;i<=2021;i++){
-//                q=q+", Y"+i+" FLOAT";
-//            }
-//            q = q + " );";
-//
-//            Statement stmt = con.createStatement();
-//            stmt.executeUpdate(q);
-//            out.println("Database created....");
+            String q = "create table ConsumerPriceIndex( Country_Name varchar(30), Country_Code varchar(10) primary key, " +
+                        "Indicator_Name varchar(30), Indicator_Code varchar(20)";
+            for(int i=1960;i<=2021;i++){
+                q=q+", Y"+i+" FLOAT";
+            }
+            q = q + " );";
+
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(q);
+            out.println("Table created....");
 
 
-            String filepath = "Data-Files/Consumer_Price_Index123.csv";
+            String filepath = "Data-Files/Consumer_Price_Index1.csv";
             con.setAutoCommit(false);
             String q1 = "insert into table economicdata values( ?,?,?,?";
             for(int i=1960;i<=2021;i++){
@@ -158,8 +156,6 @@ class DBFunctions
     }
     public static void main(String args[])
     {
-        //out.println(doesDBexists("SupaStrikas"));
-        //createDB("SupaStrikas");
         createTable();
     }
 }

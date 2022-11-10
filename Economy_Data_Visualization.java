@@ -97,13 +97,15 @@ class country implements search, search_assets  {
 public class Economy_Data_Visualization {
         static ArrayList<country> Countries = new ArrayList<country>();
 
-    
 
 
-
-    public static void main(String[] args)
-    {
-
+    public static void main(String[] args) {
+        if(DBFunctions.doesDBexists("assign_9")){
+            out.println("Yes Database Exists");
+        }
+        else{
+            out.println("No It doesn't");
+        }
         Scanner sc=new Scanner(in);
     }
 }
