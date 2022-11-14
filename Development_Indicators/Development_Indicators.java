@@ -12,11 +12,11 @@ abstract class Development_Indicators implements indicator{
     protected double value;
     protected int year;
 
-    @override
+    @Override
     public double getvalue(){
         return this.value;
     }
-    @override
+    @Override
     public int getyear(){
         return this.year;
     }

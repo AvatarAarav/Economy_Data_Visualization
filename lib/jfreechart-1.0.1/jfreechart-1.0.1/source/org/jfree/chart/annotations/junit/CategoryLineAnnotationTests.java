@@ -42,20 +42,13 @@
 
 package org.jfree.chart.annotations.junit;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.jfree.chart.annotations.CategoryLineAnnotation;
+
+import java.awt.*;
+import java.io.*;
 
 /**
  * Tests for the {@link CategoryLineAnnotationTests} class.

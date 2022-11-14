@@ -13,11 +13,11 @@ abstract class Assets_Indicators implements Development{
     protected long value ;
     protected int year;
 
-    @override
+    @Override
     public long getvalue(){
         return this.value;
     }
-    @override
+    @Override
     public int getyear(){
         return this.year;
     }
