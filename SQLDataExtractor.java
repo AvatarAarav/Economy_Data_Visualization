@@ -53,6 +53,28 @@ public class SQLDataExtractor
             return null;
         }
     }
+    static Object[] getCountryInfo()
+    {
+        String q;
+        ArrayList<String> data = new ArrayList<String>();
+        try {
+            Statement stmt = con.createStatement();
+            q = "SELECT * FROM consumer_price_index";
+            ResultSet res = stmt.executeQuery(q);
+
+            while(res.next()) {
+                String k = res.getString(2) +" - "+ res.getString(1);
+                data.add(k);
+            }
+
+            Object[] arr = data.toArray();
+            return arr;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     static String getData_Specific(String tName, String code, String year)
     {
         String q, out="";
@@ -84,5 +106,6 @@ public class SQLDataExtractor
         //display(getData_CountryWise("export_per", "AFG"));
         //display(getData_YearWise("export_per", "1960"));
         //out.println(getData_Specific("export_per", "AFG","1969"));
+        //display(getCountryInfo());
     }
 }
