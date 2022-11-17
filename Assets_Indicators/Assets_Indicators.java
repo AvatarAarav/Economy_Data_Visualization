@@ -1,4 +1,4 @@
-package Development_Indicators;
+package Assets_Indicators;
 
 interface Development{
     void setyear(int year);
