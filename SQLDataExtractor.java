@@ -5,10 +5,10 @@ public class SQLDataExtractor
 {
     static SQL_Acc acc = new SQL_Acc();
     static String turl = acc.url + acc.dbName;
+    static Connection con = ConnectionProvider.getConnection(turl, acc.username, acc.pwd);
 
     static Object[] getData_CountryWise(String tName, String code)
     {
-        Connection con = ConnectionProvider.getConnection(turl, acc.username, acc.pwd);
         String q;
         ArrayList<Double> data = new ArrayList<Double>();
         try {
@@ -33,7 +33,6 @@ public class SQLDataExtractor
 
     static Object[] getData_YearWise(String tName, String year)
     {
-        Connection con = ConnectionProvider.getConnection(turl, acc.username, acc.pwd);
         String q;
         ArrayList<String> data = new ArrayList<String>();
         try {
@@ -54,7 +53,25 @@ public class SQLDataExtractor
             return null;
         }
     }
+    static String getData_Specific(String tName, String code, String year)
+    {
+        String q, out="";
+        try {
+            Statement stmt = con.createStatement();
+            q = "SELECT Country_Code, Y"+year+" FROM "+tName+" WHERE Country_Code ='"+code+"'";
+            ResultSet res = stmt.executeQuery(q);
 
+            while(res.next()) {
+                out = code + " - " + res.getDouble(2);
+            }
+
+            return out;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     //TEST CODE
     static void display(Object[] arr)
     {
@@ -66,5 +83,6 @@ public class SQLDataExtractor
     {
         //display(getData_CountryWise("export_per", "AFG"));
         //display(getData_YearWise("export_per", "1960"));
+        //out.println(getData_Specific("export_per", "AFG","1969"));
     }
 }
