@@ -96,14 +96,16 @@ class country implements search, search_assets  {
 
 public class Economy_Data_Visualization {
         static ArrayList<country> Countries = new ArrayList<country>();
-
-    
-
-
+        static SQL_Acc acc=new SQL_Acc();
 
     public static void main(String[] args)
     {
 
         Scanner sc=new Scanner(in);
+        out.println("<----Hello, Welcome to the Economy Data Visualization Software----->");
+        if(!SQLDataRegistrar.doesDBexists(acc.dbName)){
+            SQLDataRegistrar.main(new String[]{""});
+        }
+        out.println("MENU:---->");
     }
 }
