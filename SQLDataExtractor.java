@@ -105,7 +105,7 @@ public class SQLDataExtractor
     {
         //display(getData_CountryWise("export_per", "AFG"));
         //display(getData_YearWise("export_per", "1960"));
-        out.println(getData_Specific("export_per", "AFG","1969"));
+        //out.println(getData_Specific("export_per", "AFG","1969"));
         //display(getCountryInfo());
     }
 }
