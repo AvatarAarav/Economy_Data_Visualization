@@ -1,7 +1,7 @@
 package Development_Indicators;
 
 public class Deposit_Interest_Rate extends Development_Indicators{
-    Deposit_Interest_Rate(double value , int year){
+    public Deposit_Interest_Rate(double value , int year){
         this.value = value;
         this.year = year;
 

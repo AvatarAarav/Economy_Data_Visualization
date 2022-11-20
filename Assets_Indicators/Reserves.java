@@ -3,7 +3,7 @@ package Assets_Indicators;
 public class Reserves extends Assets_Indicators {
 
 
-    Reserves(long val , int year){
+   public  Reserves(long val , int year){
         this.value = val;
         this.year = year;
     }
