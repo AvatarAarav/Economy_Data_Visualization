@@ -46,7 +46,8 @@ class country implements search, search_assets {
 
 
         for(int i=0;i<o4.length; i++){
-            long k = Long.parseLong(""+o4[i]);
+            double j = (double) o4[i];
+            long k = (long) j;
             GDP u = new GDP(k, "$" ,start , (Double)o5[i] , (Double) o6[i] , (Double) o7[i] );
             gdps.add(u);
             start++;
@@ -54,14 +55,18 @@ class country implements search, search_assets {
         Object[] o8 = SQLDataExtractor.getData_CountryWise("reserves" , code);
         start = 1960;
         for(int i=0;i<o8.length; i++){
-            Reserves v = new Reserves((Long) o8[i], start);
+            double j = (double) o8[i];
+            long k = (long) j;
+            Reserves v = new Reserves( k, start);
             res.add(v);
             start++;
         }
         Object[] o9 = SQLDataExtractor.getData_CountryWise("population" , code);
         start = 1960;
         for(int i=0;i<o9.length; i++){
-            Population w = new Population((Long) o9[i], start);
+            double j = (double) o9[i];
+            long k = (long) j;
+            Population w = new Population(k, start);
             populations.add(w);
             start++;
         }
