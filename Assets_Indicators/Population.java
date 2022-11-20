@@ -3,7 +3,7 @@ package Assets_Indicators;
 public class Population extends Assets_Indicators {
 
 
-    Population(long val , int year){
+    public Population(long val , int year){
         this.value = val;
         this.year = year;
     }

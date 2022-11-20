@@ -1,7 +1,7 @@
 package Development_Indicators;
 
 public class CPI extends Development_Indicators{
-    CPI(double value , int year){
+   public  CPI(double value , int year){
         this.value = value;
         this.year = year;
 

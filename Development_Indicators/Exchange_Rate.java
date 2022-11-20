@@ -1,7 +1,7 @@
 package Development_Indicators;
 
 public class Exchange_Rate extends Development_Indicators {
-    Exchange_Rate(double value , int year){
+    public  Exchange_Rate(double value , int year){
         this.value = value;
         this.year = year;
 

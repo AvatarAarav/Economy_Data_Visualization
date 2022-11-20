@@ -10,7 +10,7 @@ public class GDP extends Assets_Indicators {
     protected double export_percentage;
     protected double TAX_revenue_percentage;
 
-    GDP(long value ,String unit , int year , double imp ,  double export ,double tax ){
+    public GDP(long value ,String unit , int year , double imp ,  double export ,double tax ){
         this.value = value ;
         this.TAX_revenue_percentage = tax;
         this.unit = unit;
