@@ -6,7 +6,7 @@ public class CPI extends Development_Indicators{
         this.year = year;
 
     }
-    CPI(){
+    public CPI(){
         this(0 , 0);
     }
     public double calculateInflation(){

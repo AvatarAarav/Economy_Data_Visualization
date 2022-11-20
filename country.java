@@ -1,23 +1,17 @@
-import Assets_Indicators.Assets_Indicators;
-import Assets_Indicators.GDP;
-import Assets_Indicators.Population;
-import Assets_Indicators.Reserves;
-import Development_Indicators.CPI;
-import Development_Indicators.Deposit_Interest_Rate;
-import Development_Indicators.Development_Indicators;
-import Development_Indicators.Exchange_Rate;
+import Assets_Indicators.*;
+import Development_Indicators.*;
 
 import java.util.ArrayList;
 
 class country implements search, search_assets {
     private String name;
     private String code;
-    private ArrayList<Exchange_Rate> exchange_rates;
-    private ArrayList<Deposit_Interest_Rate> interest_rates;
-    private ArrayList<CPI> cpis;
-    private ArrayList<GDP> gdps;
-    private ArrayList<Reserves> res;
-    private ArrayList<Population> populations;
+    private ArrayList<Exchange_Rate> exchange_rates=new ArrayList<>();
+    private ArrayList<Deposit_Interest_Rate> interest_rates=new ArrayList<>();
+    private ArrayList<CPI> cpis=new ArrayList<>();
+    private ArrayList<GDP> gdps=new ArrayList<>();
+    private ArrayList<Reserves> res=new ArrayList<>();
+    private ArrayList<Population> populations=new ArrayList<>();
 
     country(String code,String name){
         this.code=code;
@@ -36,7 +30,7 @@ class country implements search, search_assets {
             interest_rates.add(t);
             start++;
         }
-        Object[] o3 = SQLDataExtractor.getData_CountryWise("Consumer_Price_Index" , code);
+        Object[] o3 = SQLDataExtractor.getData_CountryWise("consumer_price_index" , code);
         start = 1960;
         for(int i=0;i<o3.length; i++){
              CPI s = new CPI((Double) o3[i], start);
@@ -44,27 +38,27 @@ class country implements search, search_assets {
             start++;
         }
 
-        Object[] o4 = SQLDataExtractor.getData_CountryWise("GDP" , code);
+        Object[] o4 = SQLDataExtractor.getData_CountryWise("gdp" , code);
         start = 1960;
-        Object[] o5 = SQLDataExtractor.getData_CountryWise("import_percentazge_of_GDP" , code);
-        Object[] o6 = SQLDataExtractor.getData_CountryWise("Export_Percentage_of_GDP" , code);
-        Object[] o7 = SQLDataExtractor.getData_CountryWise("Tax_Revenue" , code);
+        Object[] o5 = SQLDataExtractor.getData_CountryWise("import_per" , code);
+        Object[] o6 = SQLDataExtractor.getData_CountryWise("export_per" , code);
+        Object[] o7 = SQLDataExtractor.getData_CountryWise("tax" , code);
 
 
         for(int i=0;i<o4.length; i++){
-
-            GDP u = new GDP((Long) o3[i], "$" ,start , (Double)o5[i] , (Double)o6[i] , (Double)o7[i] );
+            long k = Long.parseLong(""+o4[i]);
+            GDP u = new GDP(k, "$" ,start , (Double)o5[i] , (Double) o6[i] , (Double) o7[i] );
             gdps.add(u);
             start++;
         }
-        Object[] o8 = SQLDataExtractor.getData_CountryWise("Total_Reserves" , code);
+        Object[] o8 = SQLDataExtractor.getData_CountryWise("reserves" , code);
         start = 1960;
         for(int i=0;i<o8.length; i++){
             Reserves v = new Reserves((Long) o8[i], start);
             res.add(v);
             start++;
         }
-        Object[] o9 = SQLDataExtractor.getData_CountryWise("Population" , code);
+        Object[] o9 = SQLDataExtractor.getData_CountryWise("population" , code);
         start = 1960;
         for(int i=0;i<o9.length; i++){
             Population w = new Population((Long) o9[i], start);

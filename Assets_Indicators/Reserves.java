@@ -7,7 +7,7 @@ public class Reserves extends Assets_Indicators {
         this.value = val;
         this.year = year;
     }
-    Reserves(){
+    public Reserves(){
         this(0 , 0);
     }
     @Override

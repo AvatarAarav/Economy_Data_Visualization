@@ -7,7 +7,7 @@ public class Population extends Assets_Indicators {
         this.value = val;
         this.year = year;
     }
-    Population(){
+    public Population(){
         this(0 , 0);
     }
     @Override

@@ -20,7 +20,7 @@ public class GDP extends Assets_Indicators {
 
 
     }
-    GDP(){
+    public GDP(){
         this(0,"",0,0 , 0 ,0);
     }
 

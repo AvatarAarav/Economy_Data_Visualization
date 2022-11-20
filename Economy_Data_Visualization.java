@@ -33,12 +33,12 @@ public class Economy_Data_Visualization {
         //Initializing Countries Array
         ArrayList<country> Countries=new ArrayList<>();
         Object[] Countries_Names= SQLDataExtractor.getCountryInfo();
-        String tempStr;
+        String tempStr,C_Code,C_Name;
         country tempC;
         for(Object i:Countries_Names){
             tempStr=i.toString();
-            String C_Code=tempStr.substring(0,3);
-            String C_Name=tempStr.substring(6);
+            C_Code=tempStr.substring(0,3);
+            C_Name=tempStr.substring(6);
             tempC=new country(C_Code,C_Name);
             Countries.add(tempC);
         }

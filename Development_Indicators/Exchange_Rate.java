@@ -6,10 +6,9 @@ public class Exchange_Rate extends Development_Indicators {
         this.year = year;
 
     }
-    Exchange_Rate(){
+    public Exchange_Rate(){
         this(0 , 0);
     }
-
     @Override
     public void setvalue(double value) {
         this.value = value;

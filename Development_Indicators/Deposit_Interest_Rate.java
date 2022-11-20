@@ -6,7 +6,7 @@ public class Deposit_Interest_Rate extends Development_Indicators{
         this.year = year;
 
     }
-    Deposit_Interest_Rate(){
+    public Deposit_Interest_Rate(){
         this(0 , 0);
     }
     @Override
