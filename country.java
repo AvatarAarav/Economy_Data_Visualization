@@ -1,6 +1,5 @@
 import Assets_Indicators.*;
 import Development_Indicators.*;
-
 import java.util.ArrayList;
 
 class country implements search, search_assets {
@@ -70,10 +69,6 @@ class country implements search, search_assets {
             populations.add(w);
             start++;
         }
-
-
-
-
     }
 
     @Override
@@ -83,10 +78,9 @@ class country implements search, search_assets {
             if (year == x.getyear()) {
                 findvalue = x.getvalue();
                 break;
-
             }
         }
-        return -1;
+        return findvalue;
     }
 
     @Override
@@ -110,7 +104,7 @@ class country implements search, search_assets {
 
             }
         }
-        return -1;
+        return findvalue;
     }
 
     @Override
