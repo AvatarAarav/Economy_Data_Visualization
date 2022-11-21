@@ -1,3 +1,5 @@
+package Database_Functions;
+
 import java.sql.*;
 public class ConnectionProvider
 {

@@ -1,3 +1,7 @@
+package Database_Functions;
+
+import Database_Functions.SQL_Acc;
+
 import java.sql.*;
 import static java.lang.System.*;
 public class SQL_Update

@@ -1,3 +1,7 @@
+package Database_Functions;
+
+import Database_Functions.SQL_Acc;
+
 import java.sql.*;
 import java.util.*;
 import static java.lang.System.out;
@@ -7,7 +11,7 @@ public class SQLDataExtractor
     static String turl = acc.url + acc.dbName;
     static Connection con = ConnectionProvider.getConnection(turl, acc.username, acc.pwd);
 
-    static Object[] getData_CountryWise(String tName, String code)
+    public static Object[] getData_CountryWise(String tName, String code)
     {
         String q;
         ArrayList<Double> data = new ArrayList<Double>();
@@ -31,7 +35,7 @@ public class SQLDataExtractor
         }
     }
 
-    static Object[] getData_YearWise(String tName, String year)
+    public static Object[] getData_YearWise(String tName, String year)
     {
         String q;
         ArrayList<String> data = new ArrayList<String>();
@@ -53,7 +57,7 @@ public class SQLDataExtractor
             return null;
         }
     }
-    static Object[] getCountryInfo()
+    public static Object[] getCountryInfo()
     {
         String q;
         ArrayList<String> data = new ArrayList<String>();
@@ -75,7 +79,7 @@ public class SQLDataExtractor
             return null;
         }
     }
-    static String getData_Specific(String tName, String code, String year)
+    public static String getData_Specific(String tName, String code, String year)
     {
         String q, out="";
         try {

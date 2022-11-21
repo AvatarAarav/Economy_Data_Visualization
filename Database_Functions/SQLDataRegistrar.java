@@ -1,3 +1,7 @@
+package Database_Functions;
+
+import Database_Functions.SQL_Acc;
+
 import java.sql.*;
 import static java.lang.System.*;
 import java.io.*;
@@ -5,7 +9,7 @@ public class SQLDataRegistrar
 {
     static SQL_Acc acc = new SQL_Acc();
 
-    static boolean doesDBexists(String dbName)
+    public static boolean doesDBexists(String dbName)
     {
         Connection con = null;
         ResultSet rs = null;
