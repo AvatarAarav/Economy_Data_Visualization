@@ -3,14 +3,14 @@ import Development_Indicators.*;
 import java.util.ArrayList;
 
 class country implements search, search_assets {
-    private String name;
-    private String code;
-    private ArrayList<Exchange_Rate> exchange_rates=new ArrayList<>();
-    private ArrayList<Deposit_Interest_Rate> interest_rates=new ArrayList<>();
-    private ArrayList<CPI> cpis=new ArrayList<>();
-    private ArrayList<GDP> gdps=new ArrayList<>();
-    private ArrayList<Reserves> res=new ArrayList<>();
-    private ArrayList<Population> populations=new ArrayList<>();
+    public String name;
+    public String code;
+    public ArrayList<Exchange_Rate> exchange_rates=new ArrayList<>();
+    public ArrayList<Deposit_Interest_Rate> interest_rates=new ArrayList<>();
+    public ArrayList<CPI> cpis=new ArrayList<>();
+    public ArrayList<GDP> gdps=new ArrayList<>();
+    public ArrayList<Reserves> res=new ArrayList<>();
+    public ArrayList<Population> populations=new ArrayList<>();
 
     country(String code,String name){
         this.code=code;
