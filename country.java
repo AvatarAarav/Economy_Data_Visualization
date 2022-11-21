@@ -1,4 +1,5 @@
 import Assets_Indicators.*;
+import Database_Functions.SQLDataExtractor;
 import Development_Indicators.*;
 import java.util.ArrayList;
 
