@@ -22,8 +22,10 @@ import org.jfree.ui.RefineryUtilities;
 import java.util.ArrayList;
 import Assets_Indicators.*;
 
+import javax.swing.*;
 
-public class Bar_Chart_Assets_Indicators extends ApplicationFrame {
+
+public class Bar_Chart_Assets_Indicators extends JFrame {
 
     public Bar_Chart_Assets_Indicators(String applicationTitle , String chartTitle , String code, int start , int end,Assets_Indicators d,ArrayList<country> c) {
         super(applicationTitle);
