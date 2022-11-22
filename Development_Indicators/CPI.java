@@ -28,4 +28,9 @@ public class CPI extends Development_Indicators{
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return "CPI";
+    }
+
 }

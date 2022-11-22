@@ -33,4 +33,9 @@ public class GDP extends Assets_Indicators {
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return "GDP";
+    }
+
 }

@@ -18,5 +18,9 @@ public class Exchange_Rate extends Development_Indicators {
     public void setyear(int year) {
         this.year = year;
     }
+    @Override
+    public String toString() {
+        return "Exchange Rate";
+    }
 }
 

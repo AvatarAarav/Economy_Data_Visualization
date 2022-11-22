@@ -18,4 +18,8 @@ public class Deposit_Interest_Rate extends Development_Indicators{
     public void setyear(int year) {
         this.year = year;
     }
+    @Override
+    public String toString() {
+        return "Deposit Interest Rate";
+    }
 }
