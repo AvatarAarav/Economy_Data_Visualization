@@ -18,7 +18,6 @@ public class GDP extends Assets_Indicators {
         this.export_percentage = export;
         this.year = year;
 
-
     }
     public GDP(){
         this(0,"",0,0 , 0 ,0);

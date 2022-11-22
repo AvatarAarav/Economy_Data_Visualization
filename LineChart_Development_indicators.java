@@ -22,8 +22,10 @@ import org.jfree.ui.RefineryUtilities;
 import java.util.ArrayList;
 import Assets_Indicators.*;
 
+import javax.swing.*;
 
-public class LineChart_Development_indicators extends ApplicationFrame {
+
+public class LineChart_Development_indicators extends JFrame {
 
     public LineChart_Development_indicators(String applicationTitle , String chartTitle , String code, int start , int end, Development_Indicators d,ArrayList<country> c) {
         super(applicationTitle);

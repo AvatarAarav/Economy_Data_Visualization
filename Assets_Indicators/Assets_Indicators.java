@@ -22,4 +22,6 @@ public abstract class Assets_Indicators implements Development {
         return this.year;
     }
 
+
+
 }

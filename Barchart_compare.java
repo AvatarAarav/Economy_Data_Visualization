@@ -22,8 +22,10 @@ import org.jfree.ui.RefineryUtilities;
 import java.util.ArrayList;
 import Assets_Indicators.*;
 
+import javax.swing.*;
 
-public class Barchart_compare extends ApplicationFrame {
+
+public class Barchart_compare extends JFrame {
 
     public Barchart_compare(String applicationTitle , String chartTitle , String code1,String code2, int start , int end, Assets_Indicators d,ArrayList<country> c) {
         super(applicationTitle);
