@@ -2,7 +2,16 @@ import Assets_Indicators.*;
 import Database_Functions.SQLDataExtractor;
 import Development_Indicators.*;
 import java.util.ArrayList;
+interface search {
+    public<T> double searchbyYear(ArrayList<? extends Development_Indicators> arr , int year);
+    public<T> ArrayList<Double> searchbyInterval(ArrayList<? extends Development_Indicators> arr,int a , int b);
+}
 
+interface search_assets {
+    public<T> long searchbyYear_assets(ArrayList<? extends Assets_Indicators> arr , int year);
+    public<T> ArrayList<Long> searchbyInterval_assets(ArrayList<? extends Assets_Indicators> arr,int a , int b);
+
+}
 class country implements search, search_assets {
     public String name;
     public String code;

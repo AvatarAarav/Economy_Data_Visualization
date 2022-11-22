@@ -6,17 +6,6 @@ import java.util.Scanner;
 
 import static java.lang.System.*;
 
-interface search {
-    public<T> double searchbyYear(ArrayList<? extends Development_Indicators> arr , int year);
-    public<T> ArrayList<Double> searchbyInterval(ArrayList<? extends Development_Indicators> arr,int a , int b);
-}
-
-interface search_assets {
-    public<T> long searchbyYear_assets(ArrayList<? extends Assets_Indicators> arr , int year);
-    public<T> ArrayList<Long> searchbyInterval_assets(ArrayList<? extends Assets_Indicators> arr,int a , int b);
-
-}
-
 
 public class Economy_Data_Visualization {
         static ArrayList<country> Countries = new ArrayList<country>();
@@ -42,6 +31,7 @@ public class Economy_Data_Visualization {
             out.println("2-> Compare Countries");
             out.println("3-> Update Country Data");
             out.println("4-> Delete Country Data");
+            out.println("5-> Get Country Data by Country Name");
             out.println("0-> Exit");
             out.println("Any other key will Print the Menu again");
         }
@@ -60,15 +50,7 @@ public class Economy_Data_Visualization {
         out.println("You want to change:::");
         Economy_Data_Visualization.print_Indicators();
     }
-
-    public static void main(String[] args)
-    {
-        out.println("<----Hello, Welcome to the Economy Data Visualization Software----->");
-        int input=-100;
-        if(!SQLDataRegistrar.doesDBexists(acc.dbName)){
-            SQLDataRegistrar.main(new String[]{""});
-        }
-        //Initializing Countries Array
+    public static ArrayList<country> Initialize_Countries(){
         ArrayList<country> Countries=new ArrayList<>();
         Object[] Countries_Names= SQLDataExtractor.getCountryInfo();
         String tempStr,C_Code,C_Name;
@@ -80,10 +62,35 @@ public class Economy_Data_Visualization {
             tempC=new country(C_Code,C_Name);
             Countries.add(tempC);
         }
+        return Countries;
+    }
+    public static void main(String[] args)
+    {
+        out.println("<----Hello, Welcome to the Economy Data Visualization Software----->");
+        int input=1;
+        if(!SQLDataRegistrar.doesDBexists(acc.dbName)){
+            out.println("Database does not exist,\n Don't Worry, We will create one right now!");
+            SQLDataRegistrar.main(new String[]{""});
+        }
+        else{
+            out.println("Database Exists!!!,\n1->Do you want to update it on the basis of CSV files\n2->Or you want to use the old database. ");
+            input=take_input();
+            while (input!=1 && input!=2){
+                out.println("Wrong Input!! Try again");
+                input=take_input();
+            }
+            if(input==1){
+                SQLDataRegistrar.main(new String[]{""});
+            }
+        }
+        //Initializing Countries Array
+        ArrayList<country> Countries=Initialize_Countries();
+
         while (input!=0){
-            input=-100;
-            while(input==-100){
-                print_Menu();
+            print_Menu();
+            input=take_input();
+            while(input>5 || input<0){
+                out.println("Wrong Input!!!! Try Again");
                 input=take_input();
             }
             switch (input){
@@ -94,9 +101,12 @@ public class Economy_Data_Visualization {
                     ComparePlot(Countries);
                     continue;
                 case 3:
-                    Update_Data();
+                    Countries=Update_Data(Countries);
                     continue;
                 case 4:
+                    continue;
+                case 5:
+                    searchCountry(Countries);
                     continue;
                 default:
             }
@@ -104,25 +114,77 @@ public class Economy_Data_Visualization {
         out.print("\n\n Thanks for using our Visualization Software :)");
     }
 
-    private static void Update_Data() {
+    private static void searchCountry(ArrayList<country> countries) {
+        String Country_Name;
+        out.println("Enter the Country Name:");
+        Country_Name=sc.nextLine();
+        out.println("Similar records:");
+        for(country i:countries){
+            if(i.name.toLowerCase().contains(Country_Name.toLowerCase())){
+                out.println("Name:"+i.name);
+                out.println("Code:"+i.code);
+                out.println();
+            }
+        }
+    }
+
+    private static ArrayList<country> Update_Data(ArrayList<country> countries ) {
         print_Menu3();
         int input=take_input();
+        while(input>9 || input<0){
+            out.println("Wrong Input!!!! Try Again");
+            input=take_input();
+        }
         switch (input){
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
+            case 1: countries=handle_Asset_Update(countries,"GDP");break;
+            case 2: countries=handle_Asset_Update(countries,"Population");break;
+            case 3: countries=handle_Asset_Update(countries,"Reserves");break;
+            case 4: countries=handle_Development_Update(countries,"consumer_price_index");break;
+            case 5: countries=handle_Development_Update(countries,"deposit_interest_rate");break;
+            case 6: countries=handle_Development_Update(countries,"exchange_rate");break;
             case 7:
             case 8:
             case 9:
         }
+        return countries;
+    }
+
+    private static ArrayList<country> handle_Development_Update(ArrayList<country> countries,String Table_Name) {
+        String year;
+        double New_Val;
+        String Country_Code;
+        out.println("Enter The Country Code");
+        Country_Code=sc.nextLine();
+        out.println("Enter the Year which value you want to change");
+        year=sc.nextLine();
+        out.println("Enter the new value");
+        New_Val=sc.nextDouble();sc.nextLine();
+        SQL_Update.change_development(Table_Name,year,Country_Code,New_Val);
+        countries=Initialize_Countries();
+        return countries;
+    }
+    private static ArrayList<country> handle_Asset_Update(ArrayList<country> countries,String Table_Name) {
+        String year;
+        Long New_Val;
+        String Country_Code;
+        out.println("Enter The Country Code");
+        Country_Code=sc.nextLine();
+        out.println("Enter the Year which value you want to change");
+        year=sc.nextLine();
+        out.println("Enter the new value");
+        New_Val=sc.nextLong();sc.nextLine();
+        SQL_Update.change_asset(Table_Name,year,Country_Code,New_Val);
+        countries=Initialize_Countries();
+        return countries;
     }
 
     private static void ComparePlot(ArrayList<country> countries) {
         print_Menu2();
         int input=take_input();
+        while(input>9 || input<0){
+            out.println("Wrong Input!!!! Try Again");
+            input=take_input();
+        }
         switch (input){
             case 1: Plot_Chart.compare_Bar(countries,new GDP());break;
             case 2: Plot_Chart.compare_Bar(countries,new Population());break;
@@ -140,6 +202,10 @@ public class Economy_Data_Visualization {
     private static void Country_Plot(ArrayList<country> countries) {
         print_Menu1();
         int input=take_input();
+        while(input>9 || input<0){
+            out.println("Wrong Input!!!! Try Again");
+            input=take_input();
+        }
         switch (input){
             case 1: Plot_Chart.plot_bar(countries,new GDP()); break;
             case 2: Plot_Chart.plot_bar(countries,new Population()); break;
@@ -156,7 +222,9 @@ public class Economy_Data_Visualization {
     private static int take_input() {
             out.print("Enter Your Choice:");
             if(sc.hasNextInt()){
-                return sc.nextInt();
+                int d=sc.nextInt();
+                sc.nextLine();
+                return d;
             }
             else{
                 out.println("Please Enter only Integer Values!!!!!!!!!!!!");

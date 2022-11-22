@@ -10,13 +10,30 @@ public class SQL_Update
     static String turl = acc.url + acc.dbName;
     static Connection c = ConnectionProvider.getConnection(turl, acc.username, acc.pwd);
 
-    static void change(String tN, String yr, String cc, double val)
+    public static void change_development(String tN, String yr, String cc, double val)
     {
         try {
             String q = "update " + tN + " set Y" + yr + "=? where Country_Code=?";
 
             PreparedStatement pmt = c.prepareStatement(q);
             pmt.setDouble(1, val);
+            pmt.setString(2, cc);
+            pmt.executeUpdate();
+
+            out.println("Table Updated Successfully...");
+        }
+        catch(Exception e){
+            out.println("Table Update failed!!!");
+            e.printStackTrace();
+        }
+    }
+    public static void change_asset(String tN, String yr, String cc,long val)
+    {
+        try {
+            String q = "update " + tN + " set Y" + yr + "=? where Country_Code=?";
+
+            PreparedStatement pmt = c.prepareStatement(q);
+            pmt.setLong(1, val);
             pmt.setString(2, cc);
             pmt.executeUpdate();
 
