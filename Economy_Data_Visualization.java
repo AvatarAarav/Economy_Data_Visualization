@@ -91,7 +91,7 @@ public class Economy_Data_Visualization {
                     Country_Plot(Countries);
                     continue;
                 case 2:
-                    ComparePlot();
+                    ComparePlot(Countries);
                     continue;
                 case 3:
                     Update_Data();
@@ -120,16 +120,16 @@ public class Economy_Data_Visualization {
         }
     }
 
-    private static void ComparePlot() {
+    private static void ComparePlot(ArrayList<country> countries) {
         print_Menu2();
         int input=take_input();
         switch (input){
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
+            case 1: Plot_Chart.compare_Bar(countries,new GDP());break;
+            case 2: Plot_Chart.compare_Bar(countries,new Population());break;
+            case 3: Plot_Chart.compare_Bar(countries,new Reserves());break;
+            case 4: Plot_Chart.compare_line(countries,new CPI());break;
+            case 5: Plot_Chart.compare_line(countries,new Deposit_Interest_Rate());break;
+            case 6: Plot_Chart.compare_line(countries,new Exchange_Rate());break;
             case 7:
             case 8:
             case 9:
