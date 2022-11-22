@@ -1,5 +1,4 @@
 import Assets_Indicators.*;
-//import Graph_Functions.*;
 import Database_Functions.*;
 import Development_Indicators.*;
 import java.util.ArrayList;
@@ -88,7 +87,7 @@ public class Economy_Data_Visualization {
             }
             switch (input){
                 case 1:
-                    Country_Plot();
+                    Country_Plot(Countries);
                     continue;
                 case 2:
                     ComparePlot();
@@ -133,14 +132,15 @@ public class Economy_Data_Visualization {
             case 7:
             case 8:
             case 9:
+            default: break;
         }
     }
 
-    private static void Country_Plot() {
+    private static void Country_Plot(ArrayList<country> countries) {
         print_Menu1();
         int input=take_input();
         switch (input){
-            case 1:
+            case 1: Plot_Chart.plot_bar(countries);
             case 2:
             case 3:
             case 4:
