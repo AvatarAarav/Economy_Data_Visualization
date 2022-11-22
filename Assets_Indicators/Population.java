@@ -19,5 +19,10 @@ public class Population extends Assets_Indicators {
     public void setvalue(long value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "Population";
+    }
 }
 
