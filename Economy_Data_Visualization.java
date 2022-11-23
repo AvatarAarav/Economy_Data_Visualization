@@ -192,9 +192,9 @@ public class Economy_Data_Visualization {
             case 4: Plot_Chart.compare_line(countries,new CPI());break;
             case 5: Plot_Chart.compare_line(countries,new Deposit_Interest_Rate());break;
             case 6: Plot_Chart.compare_line(countries,new Exchange_Rate());break;
-            case 7:
-            case 8:
-            case 9:
+            case 7:Plot_Chart.compare_line_imp_exp(countries,'e');break;
+            case 8:Plot_Chart.compare_line_imp_exp(countries,'i'); break;
+            case 9:Plot_Chart.compare_line_imp_exp(countries,'t'); break;
             default: break;
         }
     }
@@ -213,9 +213,9 @@ public class Economy_Data_Visualization {
             case 4: Plot_Chart.plot_line(countries,new CPI()); break;
             case 5: Plot_Chart.plot_line(countries,new Deposit_Interest_Rate());break;
             case 6: Plot_Chart.plot_line(countries,new Exchange_Rate());break;
-            case 7:
-            case 8:
-            case 9:
+            case 7:Plot_Chart.plot_line_exp_imp(countries,'e');break;
+            case 8:Plot_Chart.plot_line_exp_imp(countries,'i');break;
+            case 9:Plot_Chart.plot_line_exp_imp(countries,'t');break;
         }
     }
 
