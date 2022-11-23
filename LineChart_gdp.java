@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+import Assets_Indicators.GDP;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -41,28 +42,39 @@ public class LineChart_gdp extends JFrame {
             }
         }
         ArrayList<Double> a1 = new ArrayList<>();
+//ArrayList<GDP> gd = new ArrayList<>();
 
 
-       if(e_or_i == 'e') {
 
-           for (int h = 0; h < c.get(i).gdps.size(); h++) {
-               a1.add(c.get(i).gdps.get(h).export_percentage);
+        if(e_or_i == 'e') {
 
-           }
-       }
-       else if(e_or_i == 'i'){
-           for (int h = 0; h < c.get(i).gdps.size(); h++) {
-               a1.add(c.get(i).gdps.get(h).import_percentage);
-
-           }
-       }
-       else {
-           for (int h = 0; h < c.get(i).gdps.size(); h++) {
-               a1.add(c.get(i).gdps.get(h).TAX_revenue_percentage);
-
-           }
-       }
-
+            for(int f=0;f<c.get(i).gdps.size();f++)
+            {
+                if(c.get(i).gdps.get(f).getyear() <= end && c.get(i).gdps.get(f).getyear()>= start)
+                {
+                    a1.add(c.get(i).gdps.get(f).export_percentage);
+                }
+            }
+        }
+        else if(e_or_i == 'i'){
+            for(int f=0;f<c.get(i).gdps.size();f++)
+            {
+                if(c.get(i).gdps.get(f).getyear() <= end && c.get(i).gdps.get(f).getyear()>= start)
+                {
+                    a1.add(c.get(i).gdps.get(f).import_percentage);
+                }
+            }
+        }
+        else {
+            for(int f=0;f<c.get(i).gdps.size();f++)
+            {
+                if(c.get(i).gdps.get(f).getyear() <= end && c.get(i).gdps.get(f).getyear()>= start)
+                {
+                    a1.add(c.get(i).gdps.get(f).TAX_revenue_percentage);
+                }
+            }
+        }
+//System.out.println(a1.size());
         int w = start;
         for(int p=0;p< a1.size();p++)
         {
