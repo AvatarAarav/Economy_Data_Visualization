@@ -83,19 +83,22 @@ public class Plot_Chart {
     }
 
 
-    static void plot_line_exp_imp(ArrayList<country> Countries, char c){
+    static void plot_lineGDP(ArrayList<country> Countries,String str){
         String Country_Code;
-        String temp;
-        if(c == 'e')
-        {
-            temp = "export_percentage";
+        String title;
+        char c;
+        if(str == "Export") {
+            title = "Export_percentage";
+            c='e';
         }
-        else if (c == 'i'){
-            temp = "import_percentage";
+        else if (str == "Import"){
+            title = "Import_percentage";
+            c='i';
         }
         else
         {
-         temp = "Tax_revenue";
+         title = "Tax_revenue";
+         c='t';
         }
         System.out.print("Please Enter the Country Code:");
         Country_Code=sc.nextLine();
@@ -104,27 +107,28 @@ public class Plot_Chart {
         System.out.print("Enter End Year(<2021):");
 
         int end= sc.nextInt();sc.nextLine();
-       LineChart_export_per chart = new LineChart_export_per(
-                "Economy data visualization" ,temp
+       LineChart_gdp chart = new LineChart_gdp(
+                "Economy data visualization" ,title
                 +" vs years",Country_Code,c,start,end,Countries);
         chart.pack( );
         RefineryUtilities.centerFrameOnScreen( chart );
         chart.setVisible( true );
-
     }
 
-    static void compare_line_imp_exp(ArrayList<country> Countries, char c){
+    static void compare_line_gdp(ArrayList<country> Countries, String str){
         String Country_Code1,Country_Code2;
-String temp;
-        if(c == 'e')
-        {
-            temp = "export_percentage";
+        String temp;
+        char c;
+        if(str == "Export") {
+            c='e';
+            temp = "Export_percentage";
         }
-        else if (c == 'i'){
-            temp = "import_percentage";
+        else if (str == "Import"){
+            c='i';
+            temp = "Import_percentage";
         }
-        else
-        {
+        else {
+            c='t';
             temp = "Tax_revenue";
         }
 
@@ -137,7 +141,7 @@ String temp;
         System.out.print("Enter End Year(<2021):");
 
         int end= sc.nextInt();sc.nextLine();
-        LineChart_compare_exp_imp chart = new LineChart_compare_exp_imp(
+        LineChart_compare_gdp chart = new LineChart_compare_gdp(
                 "Economy data visualization" ,
                 temp+" vs years",Country_Code1,Country_Code2,start,end,c,Countries);
 
