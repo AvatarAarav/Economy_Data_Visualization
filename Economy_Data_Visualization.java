@@ -19,8 +19,8 @@ public class Economy_Data_Visualization {
             out.println("4-> Consumer Price Index(i.e. A measure of change of prices in past years)");
             out.println("5-> Deposit Interest Rate(i.e. Rate paid by banks to their customers)");
             out.println("6-> Exchange Rate(i.e. Strength of Currency of a nation against US Dollar)");
-            out.println("7-> Import Percentage of GDP(i.e. How much percentage of GDP is spent on Importing Goods)");
-            out.println("8-> Export Percentage of GDP(i.e. How much percentage of GDP is spent on Exporting Goods)");
+            out.println("7-> Export Percentage of GDP(i.e. How much percentage of GDP is spent on Exporting Goods)");
+            out.println("8-> Import Percentage of GDP(i.e. How much percentage of GDP is spent on Importing Goods)");
             out.println("9-> Tax Revenue Percentage(Funds collected from Imports)");
 
             out.println("Any else key will go back");
