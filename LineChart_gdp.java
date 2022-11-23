@@ -1,33 +1,17 @@
-
-import Assets_Indicators.*;
-
-import Development_Indicators.*;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
-import java.util.ArrayList;
-import Assets_Indicators.*;
 
 import javax.swing.*;
 
 
-public class LineChart_export_per extends JFrame {
+public class LineChart_gdp extends JFrame {
 
-    public LineChart_export_per(String applicationTitle , String chartTitle , String code,char e_or_i, int start , int end,ArrayList<country> c) {
+    public LineChart_gdp(String applicationTitle , String chartTitle , String code, char e_or_i, int start , int end, ArrayList<country> c) {
         super(applicationTitle);
         String s1 =  Integer.toString(start);
         String s2 =    Integer.toString(end);

@@ -185,17 +185,18 @@ public class Economy_Data_Visualization {
             out.println("Wrong Input!!!! Try Again");
             input=take_input();
         }
-        switch (input){
-            case 1: Plot_Chart.compare_Bar(countries,new GDP());break;
-            case 2: Plot_Chart.compare_Bar(countries,new Population());break;
-            case 3: Plot_Chart.compare_Bar(countries,new Reserves());break;
-            case 4: Plot_Chart.compare_line(countries,new CPI());break;
-            case 5: Plot_Chart.compare_line(countries,new Deposit_Interest_Rate());break;
-            case 6: Plot_Chart.compare_line(countries,new Exchange_Rate());break;
-            case 7:Plot_Chart.compare_line_imp_exp(countries,'e');break;
-            case 8:Plot_Chart.compare_line_imp_exp(countries,'i'); break;
-            case 9:Plot_Chart.compare_line_imp_exp(countries,'t'); break;
-            default: break;
+        switch (input) {
+            case 1 -> Plot_Chart.compare_Bar(countries, new GDP());
+            case 2 -> Plot_Chart.compare_Bar(countries, new Population());
+            case 3 -> Plot_Chart.compare_Bar(countries, new Reserves());
+            case 4 -> Plot_Chart.compare_line(countries, new CPI());
+            case 5 -> Plot_Chart.compare_line(countries, new Deposit_Interest_Rate());
+            case 6 -> Plot_Chart.compare_line(countries, new Exchange_Rate());
+            case 7 -> Plot_Chart.compare_line_gdp(countries, "Export");
+            case 8 -> Plot_Chart.compare_line_gdp(countries, "Import");
+            case 9 -> Plot_Chart.compare_line_gdp(countries, "Tax");
+            default -> {
+            }
         }
     }
 
@@ -206,16 +207,16 @@ public class Economy_Data_Visualization {
             out.println("Wrong Input!!!! Try Again");
             input=take_input();
         }
-        switch (input){
-            case 1: Plot_Chart.plot_bar(countries,new GDP()); break;
-            case 2: Plot_Chart.plot_bar(countries,new Population()); break;
-            case 3: Plot_Chart.plot_bar(countries,new Reserves());break;
-            case 4: Plot_Chart.plot_line(countries,new CPI()); break;
-            case 5: Plot_Chart.plot_line(countries,new Deposit_Interest_Rate());break;
-            case 6: Plot_Chart.plot_line(countries,new Exchange_Rate());break;
-            case 7:Plot_Chart.plot_line_exp_imp(countries,'e');break;
-            case 8:Plot_Chart.plot_line_exp_imp(countries,'i');break;
-            case 9:Plot_Chart.plot_line_exp_imp(countries,'t');break;
+        switch (input) {
+            case 1 -> Plot_Chart.plot_bar(countries, new GDP());
+            case 2 -> Plot_Chart.plot_bar(countries, new Population());
+            case 3 -> Plot_Chart.plot_bar(countries, new Reserves());
+            case 4 -> Plot_Chart.plot_line(countries, new CPI());
+            case 5 -> Plot_Chart.plot_line(countries, new Deposit_Interest_Rate());
+            case 6 -> Plot_Chart.plot_line(countries, new Exchange_Rate());
+            case 7 -> Plot_Chart.plot_lineGDP(countries, "Export");
+            case 8 -> Plot_Chart.plot_lineGDP(countries, "Import");
+            case 9 -> Plot_Chart.plot_lineGDP(countries, "Tax");
         }
     }
 
