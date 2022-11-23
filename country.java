@@ -128,15 +128,20 @@ class country implements search, search_assets {
         return ret;
     }
 
-    public ArrayList<Double> inflation_Difference() {
-        ArrayList<Double> ret = new ArrayList<>();
-        for (int i = 1; i < cpis.size(); i++) {
-            CPI temp = cpis.get(i);
-            CPI temp2 = cpis.get(i - 1);
-            double temporary = temp.calculateInflation() - temp2.calculateInflation();
-            ret.add(temporary);
+    public Double inflation_Difference(int Year1,int Year2) {
+        double temp1=0,temp2=0;
+        for(CPI i:cpis){
+            if(i.getyear()==Year1){
+                temp1=i.getvalue();
+            }
+            if(i.getyear()==Year2){
+                temp2=i.getvalue();
+            }
         }
-        return ret;
+        return ((temp1-temp2)/temp2)*100;
+    }
+    public Double inflation_Difference(int Year){
+        return inflation_Difference(Year,Year-1);
     }
 
 

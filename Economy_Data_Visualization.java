@@ -32,6 +32,7 @@ public class Economy_Data_Visualization {
             out.println("3-> Update Country Data");
             out.println("4-> Delete Country Data");
             out.println("5-> Get Country Data by Country Name");
+            out.println("6-> Get Inflation data about Country");
             out.println("0-> Exit");
             out.println("Any other key will Print the Menu again");
         }
@@ -80,6 +81,7 @@ public class Economy_Data_Visualization {
                 input=take_input();
             }
             if(input==1){
+                DeleteJDBC.delDB();
                 SQLDataRegistrar.main(new String[]{""});
             }
         }
@@ -89,7 +91,7 @@ public class Economy_Data_Visualization {
         while (input!=0){
             print_Menu();
             input=take_input();
-            while(input>5 || input<0){
+            while(input>6 || input<0){
                 out.println("Wrong Input!!!! Try Again");
                 input=take_input();
             }
@@ -108,22 +110,38 @@ public class Economy_Data_Visualization {
                 case 5:
                     searchCountry(Countries);
                     continue;
+                case 6:
+                    Inflation(Countries);
                 default:
             }
         }
         out.print("\n\n Thanks for using our Visualization Software :)");
     }
 
+    private static void Inflation(ArrayList<country> countries) {
+        out.print("Enter the Country Code:");
+        String country_code=sc.nextLine();
+        out.print("Enter the Range of Years:\nLower Value:");
+        int lower= sc.nextInt();sc.nextLine();
+        out.print("Upper Value:");
+        int upper= sc.nextInt();sc.nextLine();
+        for(country i:countries){
+            if(i.code.equals(country_code)){
+                out.println("Inflation between these years:"+i.inflation_Difference(upper,lower));
+            }
+        }
+    }
+
     private static void searchCountry(ArrayList<country> countries) {
         String Country_Name;
-        out.println("Enter the Country Name:");
+        out.print("Enter the Country Name:");
         Country_Name=sc.nextLine();
         out.println("Similar records:");
         for(country i:countries){
             if(i.name.toLowerCase().contains(Country_Name.toLowerCase())){
                 out.println("Name:"+i.name);
                 out.println("Code:"+i.code);
-                out.println();
+                out.println("Inflation:"+i.inflation_Difference(2021));
             }
         }
     }
@@ -136,47 +154,20 @@ public class Economy_Data_Visualization {
             input=take_input();
         }
         switch (input){
-            case 1: countries=handle_Asset_Update(countries,"GDP");break;
-            case 2: countries=handle_Asset_Update(countries,"Population");break;
-            case 3: countries=handle_Asset_Update(countries,"Reserves");break;
-            case 4: countries=handle_Development_Update(countries,"consumer_price_index");break;
-            case 5: countries=handle_Development_Update(countries,"deposit_interest_rate");break;
-            case 6: countries=handle_Development_Update(countries,"exchange_rate");break;
-            case 7:
-            case 8:
-            case 9:
+            case 1: countries=HandleUpdate.handle_Asset_Update(countries,"GDP");break;
+            case 2: countries=HandleUpdate.handle_Asset_Update(countries,"Population");break;
+            case 3: countries=HandleUpdate.handle_Asset_Update(countries,"Reserves");break;
+            case 4: countries=HandleUpdate.handle_Development_Update(countries,"consumer_price_index");break;
+            case 5: countries=HandleUpdate.handle_Development_Update(countries,"deposit_interest_rate");break;
+            case 6: countries=HandleUpdate.handle_Development_Update(countries,"exchange_rate");break;
+            case 7: countries=HandleUpdate.handle_GDP_Update(countries,"export_per");
+            case 8: countries=HandleUpdate.handle_GDP_Update(countries,"import_per");
+            case 9: countries=HandleUpdate.handle_GDP_Update(countries,"tax");
         }
         return countries;
     }
 
-    private static ArrayList<country> handle_Development_Update(ArrayList<country> countries,String Table_Name) {
-        String year;
-        double New_Val;
-        String Country_Code;
-        out.println("Enter The Country Code");
-        Country_Code=sc.nextLine();
-        out.println("Enter the Year which value you want to change");
-        year=sc.nextLine();
-        out.println("Enter the new value");
-        New_Val=sc.nextDouble();sc.nextLine();
-        SQL_Update.change_development(Table_Name,year,Country_Code,New_Val);
-        countries=Initialize_Countries();
-        return countries;
-    }
-    private static ArrayList<country> handle_Asset_Update(ArrayList<country> countries,String Table_Name) {
-        String year;
-        Long New_Val;
-        String Country_Code;
-        out.println("Enter The Country Code");
-        Country_Code=sc.nextLine();
-        out.println("Enter the Year which value you want to change");
-        year=sc.nextLine();
-        out.println("Enter the new value");
-        New_Val=sc.nextLong();sc.nextLine();
-        SQL_Update.change_asset(Table_Name,year,Country_Code,New_Val);
-        countries=Initialize_Countries();
-        return countries;
-    }
+
 
     private static void ComparePlot(ArrayList<country> countries) {
         print_Menu2();
