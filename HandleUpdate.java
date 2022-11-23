@@ -1,5 +1,4 @@
-import Database_Functions.SQL_Update;
-
+import Database_Functions.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,7 +24,8 @@ public class HandleUpdate {
         countries=Economy_Data_Visualization.Initialize_Countries();
         return countries;
     }
-    public static ArrayList<country> handle_Asset_Update(ArrayList<country> countries,String Table_Name) {
+    public static ArrayList<country> handle_Asset_Update(ArrayList<country> countries,String Table_Name)
+    {
         String year;
         Long New_Val;
         String Country_Code;
@@ -39,4 +39,12 @@ public class HandleUpdate {
         countries=Economy_Data_Visualization.Initialize_Countries();
         return countries;
     }
+    public static ArrayList<country> handle_Delete(ArrayList<country> countries,String Table_Name,String Country_Code)//throws Exception
+    {
+        //Class.forName("Database_Functions.DeleteJDBC");
+        DeleteJDBC.delRec(Table_Name,Country_Code);
+        countries=Economy_Data_Visualization.Initialize_Countries();
+        return countries;
+    }
+
 }

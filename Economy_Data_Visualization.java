@@ -8,7 +8,6 @@ import static java.lang.System.*;
 
 
 public class Economy_Data_Visualization {
-        static ArrayList<country> Countries = new ArrayList<country>();
         static SQL_Acc acc=new SQL_Acc();
         static Scanner sc=new Scanner(in);
 
@@ -49,6 +48,11 @@ public class Economy_Data_Visualization {
     static void print_Menu3(){
         out.println("Menu_3:--->");
         out.println("You want to change:::");
+        Economy_Data_Visualization.print_Indicators();
+    }
+    static void print_Menu4(){
+        out.println("Menu_4:--->");
+        out.println("You want to Delete:::");
         Economy_Data_Visualization.print_Indicators();
     }
     public static ArrayList<country> Initialize_Countries(){
@@ -106,6 +110,7 @@ public class Economy_Data_Visualization {
                     Countries=Update_Data(Countries);
                     continue;
                 case 4:
+                    Countries=Delete_Country(Countries);
                     continue;
                 case 5:
                     searchCountry(Countries);
@@ -116,6 +121,30 @@ public class Economy_Data_Visualization {
             }
         }
         out.print("\n\n Thanks for using our Visualization Software :)");
+    }
+
+    private static ArrayList<country> Delete_Country(ArrayList<country> countries) {
+        String Country_Code;
+        out.print("Enter the Country Code:");
+        Country_Code=sc.nextLine();
+        print_Menu4();
+        int input=take_input();
+        while(input>9 || input<0){
+            out.println("Wrong Input!!!! Try Again");
+            input=take_input();
+        }
+        switch (input) {
+            case 1 -> countries = HandleUpdate.handle_Delete(countries, "GDP", Country_Code);
+            case 2 -> countries = HandleUpdate.handle_Delete(countries, "Population", Country_Code);
+            case 3 -> countries = HandleUpdate.handle_Delete(countries, "Reserves", Country_Code);
+            case 4 -> countries = HandleUpdate.handle_Delete(countries, "consumer_price_index", Country_Code);
+            case 5 -> countries = HandleUpdate.handle_Delete(countries, "deposit_interest_rate", Country_Code);
+            case 6 -> countries = HandleUpdate.handle_Delete(countries, "exchange_rate", Country_Code);
+            case 7 -> countries = HandleUpdate.handle_Delete(countries, "export_per", Country_Code);
+            case 8 -> countries = HandleUpdate.handle_Delete(countries, "import_per", Country_Code);
+            case 9 -> countries = HandleUpdate.handle_Delete(countries, "tax", Country_Code);
+        }
+        return countries;
     }
 
     private static void Inflation(ArrayList<country> countries) {
@@ -153,16 +182,16 @@ public class Economy_Data_Visualization {
             out.println("Wrong Input!!!! Try Again");
             input=take_input();
         }
-        switch (input){
-            case 1: countries=HandleUpdate.handle_Asset_Update(countries,"GDP");break;
-            case 2: countries=HandleUpdate.handle_Asset_Update(countries,"Population");break;
-            case 3: countries=HandleUpdate.handle_Asset_Update(countries,"Reserves");break;
-            case 4: countries=HandleUpdate.handle_Development_Update(countries,"consumer_price_index");break;
-            case 5: countries=HandleUpdate.handle_Development_Update(countries,"deposit_interest_rate");break;
-            case 6: countries=HandleUpdate.handle_Development_Update(countries,"exchange_rate");break;
-            case 7: countries=HandleUpdate.handle_GDP_Update(countries,"export_per");
-            case 8: countries=HandleUpdate.handle_GDP_Update(countries,"import_per");
-            case 9: countries=HandleUpdate.handle_GDP_Update(countries,"tax");
+        switch (input) {
+            case 1 -> countries = HandleUpdate.handle_Asset_Update(countries, "GDP");
+            case 2 -> countries = HandleUpdate.handle_Asset_Update(countries, "Population");
+            case 3 -> countries = HandleUpdate.handle_Asset_Update(countries, "Reserves");
+            case 4 -> countries = HandleUpdate.handle_Development_Update(countries, "consumer_price_index");
+            case 5 -> countries = HandleUpdate.handle_Development_Update(countries, "deposit_interest_rate");
+            case 6 -> countries = HandleUpdate.handle_Development_Update(countries, "exchange_rate");
+            case 7 -> countries = HandleUpdate.handle_GDP_Update(countries, "export_per");
+            case 8 -> countries = HandleUpdate.handle_GDP_Update(countries, "import_per");
+            case 9 -> countries = HandleUpdate.handle_GDP_Update(countries, "tax");
         }
         return countries;
     }
