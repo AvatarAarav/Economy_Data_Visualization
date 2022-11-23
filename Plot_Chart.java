@@ -16,9 +16,19 @@ public class Plot_Chart {
         Country_Code=sc.nextLine();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
+        if(start<1960){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter Start Year(>1960):");
+            start=sc.nextInt();sc.nextLine();
+        }
         System.out.print("Enter End Year(<2021):");
-        String Parameter_Name=parameter.toString();
         int end= sc.nextInt();sc.nextLine();
+        if(end>2021){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter End Year(<2021):");
+            end= sc.nextInt();sc.nextLine();
+        }
+        String Parameter_Name=parameter.toString();
         LineChart_Development_indicators chart = new LineChart_Development_indicators(
                 "Economy data visualization" ,
                 Parameter_Name+" vs years",Country_Code,start,end,parameter,Countries);
@@ -33,9 +43,19 @@ public class Plot_Chart {
         Country_Code=sc.nextLine();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
+        if(start<1960){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter Start Year(>1960):");
+            start=sc.nextInt();sc.nextLine();
+        }
         System.out.print("Enter End Year(<2021):");
-        String Parameter_Name=parameter.toString();
         int end= sc.nextInt();sc.nextLine();
+        if(end>2021){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter End Year(<2021):");
+            end= sc.nextInt();sc.nextLine();
+        }
+        String Parameter_Name=parameter.toString();
         Bar_Chart_Assets_Indicators chart = new Bar_Chart_Assets_Indicators(
                 "Economy data visualization" ,
                 Parameter_Name+" vs years",Country_Code,start,end,parameter,Countries);
@@ -51,9 +71,19 @@ public class Plot_Chart {
         Country_Code2=sc.nextLine();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
+        if(start<1960){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter Start Year(>1960):");
+            start=sc.nextInt();sc.nextLine();
+        }
         System.out.print("Enter End Year(<2021):");
-        String Parameter_Name=parameter.toString();
         int end= sc.nextInt();sc.nextLine();
+        if(end>2021){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter End Year(<2021):");
+            end= sc.nextInt();sc.nextLine();
+        }
+        String Parameter_Name=parameter.toString();
         Barchart_compare chart = new Barchart_compare(
                 "Economy data visualization" ,
                 Parameter_Name+" vs years",Country_Code1,Country_Code2,start,end,parameter,Countries);
@@ -70,9 +100,19 @@ public class Plot_Chart {
         Country_Code2=sc.nextLine();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
+        if(start<1960){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter Start Year(>1960):");
+            start=sc.nextInt();sc.nextLine();
+        }
         System.out.print("Enter End Year(<2021):");
-        String Parameter_Name=parameter.toString();
         int end= sc.nextInt();sc.nextLine();
+        if(end>2021){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter End Year(<2021):");
+            end= sc.nextInt();sc.nextLine();
+        }
+        String Parameter_Name=parameter.toString();
         LineChart_compare chart = new LineChart_compare(
                 "Economy data visualization" ,
                 Parameter_Name+" vs years",Country_Code1,Country_Code2,start,end,parameter,Countries);
@@ -104,9 +144,18 @@ public class Plot_Chart {
         Country_Code=sc.nextLine();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
+        if(start<1960){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter Start Year(>1960):");
+            start=sc.nextInt();sc.nextLine();
+        }
         System.out.print("Enter End Year(<2021):");
-
         int end= sc.nextInt();sc.nextLine();
+        if(end>2021){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter End Year(<2021):");
+            end= sc.nextInt();sc.nextLine();
+        }
        LineChart_gdp chart = new LineChart_gdp(
                 "Economy data visualization" ,title
                 +" vs years",Country_Code,c,start,end,Countries);
@@ -138,9 +187,18 @@ public class Plot_Chart {
         Country_Code2=sc.nextLine();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
+        if(start<1960){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter Start Year(>1960):");
+            start=sc.nextInt();sc.nextLine();
+        }
         System.out.print("Enter End Year(<2021):");
-
         int end= sc.nextInt();sc.nextLine();
+        if(end>2021){
+            System.out.println("Error!!! Wrong Input Please enter within range");
+            System.out.print("Enter End Year(<2021):");
+            end= sc.nextInt();sc.nextLine();
+        }
         LineChart_compare_gdp chart = new LineChart_compare_gdp(
                 "Economy data visualization" ,
                 temp+" vs years",Country_Code1,Country_Code2,start,end,c,Countries);
