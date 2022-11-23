@@ -53,40 +53,58 @@ public class LineChart_compare_gdp extends JFrame {
         ArrayList<Double> a1 = new ArrayList<>();
         ArrayList<Double> b1 = new ArrayList<>();
 
-if(ch == 'e')
-{
-    for (int h = 0; h < c.get(i).gdps.size(); h++) {
-        a1.add(c.get(i).gdps.get(h).export_percentage);
+        if(ch == 'e')
+        {
+            for(int f=0;f<c.get(i).gdps.size();f++)
+            {
+                if(c.get(i).gdps.get(f).getyear() <= end && c.get(i).gdps.get(f).getyear()>= start)
+                {
+                    a1.add(c.get(i).gdps.get(f).export_percentage);
+                }
+            }
+            for(int f=0;f<c.get(j).gdps.size();f++)
+            {
+                if(c.get(j).gdps.get(f).getyear() <= end && c.get(j).gdps.get(f).getyear()>= start)
+                {
+                    b1.add(c.get(j).gdps.get(f).export_percentage);
+                }
+            }
 
-    }
-    for (int h = 0; h < c.get(j).gdps.size(); h++) {
-        b1.add(c.get(j).gdps.get(h).export_percentage);
-
-    }
-
-}
-else if (ch == 'i')
-{
-    for (int h = 0; h < c.get(i).gdps.size(); h++) {
-        a1.add(c.get(i).gdps.get(h).import_percentage);
-
-    }
-    for (int h = 0; h < c.get(j).gdps.size(); h++) {
-        b1.add(c.get(j).gdps.get(h).import_percentage);
-
-    }
-}
-else
-{
-    for (int h = 0; h < c.get(i).gdps.size(); h++) {
-        a1.add(c.get(i).gdps.get(h).TAX_revenue_percentage);
-
-    }
-    for (int h = 0; h < c.get(j).gdps.size(); h++) {
-        b1.add(c.get(j).gdps.get(h).TAX_revenue_percentage);
-
-    }
-}
+        }
+        else if (ch == 'i')
+        {
+            for(int f=0;f<c.get(i).gdps.size();f++)
+            {
+                if(c.get(i).gdps.get(f).getyear() <= end && c.get(i).gdps.get(f).getyear()>= start)
+                {
+                    a1.add(c.get(i).gdps.get(f).import_percentage);
+                }
+            }
+            for(int f=0;f<c.get(j).gdps.size();f++)
+            {
+                if(c.get(j).gdps.get(f).getyear() <= end && c.get(j).gdps.get(f).getyear()>= start)
+                {
+                    b1.add(c.get(j).gdps.get(f).import_percentage);
+                }
+            }
+        }
+        else
+        {
+            for(int f=0;f<c.get(i).gdps.size();f++)
+            {
+                if(c.get(i).gdps.get(f).getyear() <= end && c.get(i).gdps.get(f).getyear()>= start)
+                {
+                    a1.add(c.get(i).gdps.get(f).TAX_revenue_percentage);
+                }
+            }
+            for(int f=0;f<c.get(j).gdps.size();f++)
+            {
+                if(c.get(j).gdps.get(f).getyear() <= end && c.get(j).gdps.get(f).getyear()>= start)
+                {
+                    b1.add(c.get(j).gdps.get(f).TAX_revenue_percentage);
+                }
+            }
+        }
 
         int w = start;
         for(int p=0;p< a1.size();p++)
