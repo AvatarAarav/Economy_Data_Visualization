@@ -25,7 +25,7 @@ public class Economy_Data_Visualization {
             out.println("Any else key will go back");
         }
         static void print_Menu(){
-            out.println("Menu:--->");
+            out.println("\n\nMenu:--->");
             out.println("1-> Plot Specific Country Data");
             out.println("2-> Compare Countries");
             out.println("3-> Update Country Data");
@@ -171,6 +171,7 @@ public class Economy_Data_Visualization {
                 out.println("Name:"+i.name);
                 out.println("Code:"+i.code);
                 out.println("Inflation:"+i.inflation_Difference(2021));
+                out.println("\n\n");
             }
         }
     }
