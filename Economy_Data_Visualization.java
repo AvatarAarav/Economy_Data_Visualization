@@ -36,22 +36,22 @@ public class Economy_Data_Visualization {
             out.println("Any other key will Print the Menu again");
         }
      static void print_Menu1(){
-        out.println("Menu_1:--->");
+        out.println("\n\nMenu_1:--->");
         out.println("You want to Plot:::");
         Economy_Data_Visualization.print_Indicators();
     }
     static void print_Menu2(){
-        out.println("Menu_2:--->");
+        out.println("\n\nMenu_2:--->");
         out.println("On the Basis of:::");
         Economy_Data_Visualization.print_Indicators();
     }
     static void print_Menu3(){
-        out.println("Menu_3:--->");
+        out.println("\n\nMenu_3:--->");
         out.println("You want to change:::");
         Economy_Data_Visualization.print_Indicators();
     }
     static void print_Menu4(){
-        out.println("Menu_4:--->");
+        out.println("\n\nMenu_4:--->");
         out.println("You want to Delete:::");
         Economy_Data_Visualization.print_Indicators();
     }
@@ -248,6 +248,7 @@ public class Economy_Data_Visualization {
                 return d;
             }
             else{
+                sc.nextLine();
                 out.println("Please Enter only Integer Values!!!!!!!!!!!!");
                 return -100;
             }

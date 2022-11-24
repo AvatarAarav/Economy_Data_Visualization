@@ -14,6 +14,7 @@ public class Plot_Chart {
         String Country_Code;
         System.out.print("Please Enter the Country Code:");
         Country_Code=sc.nextLine();
+        Country_Code=Country_Code.toUpperCase();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
         if(start<1960){
@@ -41,6 +42,7 @@ public class Plot_Chart {
         String Country_Code;
         System.out.print("Please Enter the Country Code:");
         Country_Code=sc.nextLine();
+        Country_Code=Country_Code.toUpperCase();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
         if(start<1960){
@@ -67,8 +69,10 @@ public class Plot_Chart {
         String Country_Code1,Country_Code2;
         System.out.print("Please Enter the first Country Code:");
         Country_Code1=sc.nextLine();
+        Country_Code1=Country_Code1.toUpperCase();
         System.out.print("Please Enter the second Country Code:");
         Country_Code2=sc.nextLine();
+        Country_Code2=Country_Code2.toUpperCase();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
         if(start<1960){
@@ -96,8 +100,10 @@ public class Plot_Chart {
         String Country_Code1,Country_Code2;
         System.out.print("Please Enter the first Country Code:");
         Country_Code1=sc.nextLine();
+        Country_Code1=Country_Code1.toUpperCase();
         System.out.print("Please Enter the second Country Code:");
         Country_Code2=sc.nextLine();
+        Country_Code2=Country_Code2.toUpperCase();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
         if(start<1960){
@@ -142,6 +148,7 @@ public class Plot_Chart {
         }
         System.out.print("Please Enter the Country Code:");
         Country_Code=sc.nextLine();
+        Country_Code=Country_Code.toUpperCase();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
         if(start<1960){
@@ -183,8 +190,10 @@ public class Plot_Chart {
 
         System.out.print("Please Enter the first Country Code:");
         Country_Code1=sc.nextLine();
+        Country_Code1=Country_Code1.toUpperCase();
         System.out.print("Please Enter the second Country Code:");
         Country_Code2=sc.nextLine();
+        Country_Code2=Country_Code2.toUpperCase();
         System.out.print("Enter Start Year(>1960):");
         int start=sc.nextInt();sc.nextLine();
         if(start<1960){
