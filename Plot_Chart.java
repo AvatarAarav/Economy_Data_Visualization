@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.in;
+import static java.lang.System.out;
 
 
 public class Plot_Chart {
@@ -15,16 +16,31 @@ public class Plot_Chart {
         System.out.print("Please Enter the Country Code:");
         Country_Code=sc.nextLine();
         Country_Code=Country_Code.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code=sc.nextLine();
+        }
         System.out.print("Enter Start Year(>1960):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter Start Year(>1960):");
+        }
         int start=sc.nextInt();sc.nextLine();
-        if(start<1960){
+        while(start<1960 || start>2021){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter Start Year(>1960):");
             start=sc.nextInt();sc.nextLine();
         }
         System.out.print("Enter End Year(<2021):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter End Year(<2021):");
+        }
         int end= sc.nextInt();sc.nextLine();
-        if(end>2021){
+        while (end>2021 || end<1960){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter End Year(<2021):");
             end= sc.nextInt();sc.nextLine();
@@ -43,16 +59,31 @@ public class Plot_Chart {
         System.out.print("Please Enter the Country Code:");
         Country_Code=sc.nextLine();
         Country_Code=Country_Code.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code=sc.nextLine();
+        }
         System.out.print("Enter Start Year(>1960):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter Start Year(>1960):");
+        }
         int start=sc.nextInt();sc.nextLine();
-        if(start<1960){
+        while(start<1960 || start>2021){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter Start Year(>1960):");
             start=sc.nextInt();sc.nextLine();
         }
         System.out.print("Enter End Year(<2021):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter End Year(<2021):");
+        }
         int end= sc.nextInt();sc.nextLine();
-        if(end>2021){
+        while (end>2021 || end<1960){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter End Year(<2021):");
             end= sc.nextInt();sc.nextLine();
@@ -70,19 +101,39 @@ public class Plot_Chart {
         System.out.print("Please Enter the first Country Code:");
         Country_Code1=sc.nextLine();
         Country_Code1=Country_Code1.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code1)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code1=sc.nextLine();
+        }
         System.out.print("Please Enter the second Country Code:");
         Country_Code2=sc.nextLine();
         Country_Code2=Country_Code2.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code2)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code2=sc.nextLine();
+        }
         System.out.print("Enter Start Year(>1960):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter Start Year(>1960):");
+        }
         int start=sc.nextInt();sc.nextLine();
-        if(start<1960){
+        while(start<1960 || start>2021){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter Start Year(>1960):");
             start=sc.nextInt();sc.nextLine();
         }
         System.out.print("Enter End Year(<2021):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter End Year(<2021):");
+        }
         int end= sc.nextInt();sc.nextLine();
-        if(end>2021){
+        while (end>2021 || end<1960){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter End Year(<2021):");
             end= sc.nextInt();sc.nextLine();
@@ -101,19 +152,39 @@ public class Plot_Chart {
         System.out.print("Please Enter the first Country Code:");
         Country_Code1=sc.nextLine();
         Country_Code1=Country_Code1.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code1)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code1=sc.nextLine();
+        }
         System.out.print("Please Enter the second Country Code:");
         Country_Code2=sc.nextLine();
         Country_Code2=Country_Code2.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code2)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code2=sc.nextLine();
+        }
         System.out.print("Enter Start Year(>1960):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter Start Year(>1960):");
+        }
         int start=sc.nextInt();sc.nextLine();
-        if(start<1960){
+        while(start<1960 || start>2021){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter Start Year(>1960):");
             start=sc.nextInt();sc.nextLine();
         }
         System.out.print("Enter End Year(<2021):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter End Year(<2021):");
+        }
         int end= sc.nextInt();sc.nextLine();
-        if(end>2021){
+        while (end>2021 || end<1960){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter End Year(<2021):");
             end= sc.nextInt();sc.nextLine();
@@ -149,16 +220,31 @@ public class Plot_Chart {
         System.out.print("Please Enter the Country Code:");
         Country_Code=sc.nextLine();
         Country_Code=Country_Code.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code=sc.nextLine();
+        }
         System.out.print("Enter Start Year(>1960):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter Start Year(>1960):");
+        }
         int start=sc.nextInt();sc.nextLine();
-        if(start<1960){
+        while(start<1960 || start>2021){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter Start Year(>1960):");
             start=sc.nextInt();sc.nextLine();
         }
         System.out.print("Enter End Year(<2021):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter End Year(<2021):");
+        }
         int end= sc.nextInt();sc.nextLine();
-        if(end>2021){
+        while (end>2021 || end<1960){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter End Year(<2021):");
             end= sc.nextInt();sc.nextLine();
@@ -191,19 +277,39 @@ public class Plot_Chart {
         System.out.print("Please Enter the first Country Code:");
         Country_Code1=sc.nextLine();
         Country_Code1=Country_Code1.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code1)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code1=sc.nextLine();
+        }
         System.out.print("Please Enter the second Country Code:");
         Country_Code2=sc.nextLine();
         Country_Code2=Country_Code2.toUpperCase();
+        while (!Economy_Data_Visualization.check_country_code(Country_Code2)){
+            out.println("Wrong!! Country Code");
+            out.print("Enter the Country Code:");
+            Country_Code2=sc.nextLine();
+        }
         System.out.print("Enter Start Year(>1960):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter Start Year(>1960):");
+        }
         int start=sc.nextInt();sc.nextLine();
-        if(start<1960){
+        while(start<1960 || start>2021){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter Start Year(>1960):");
             start=sc.nextInt();sc.nextLine();
         }
         System.out.print("Enter End Year(<2021):");
+        while(!sc.hasNextInt()){
+            sc.nextLine();
+            out.println("Enter only Integer!!!!");
+            System.out.print("Enter End Year(<2021):");
+        }
         int end= sc.nextInt();sc.nextLine();
-        if(end>2021){
+        while (end>2021 || end<1960){
             System.out.println("Error!!! Wrong Input Please enter within range");
             System.out.print("Enter End Year(<2021):");
             end= sc.nextInt();sc.nextLine();
