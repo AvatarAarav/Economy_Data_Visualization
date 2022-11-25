@@ -1,6 +1,8 @@
 import Assets_Indicators.*;
 import Database_Functions.*;
 import Development_Indicators.*;
+
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -77,6 +79,14 @@ public class Economy_Data_Visualization {
     {
         out.println("<----Hello, Welcome to the Economy Data Visualization Software----->");
         int input=1;
+        out.print("Please Enter your Database Password:");
+        SQL_Acc.pwd= sc.nextLine();
+        Connection con = ConnectionProvider.getConnection(acc.url, acc.username, acc.pwd);
+        while (con==null){
+            out.print("Wrong Password!!\n Please enter the correct database password");
+            SQL_Acc.pwd= sc.nextLine();
+            con = ConnectionProvider.getConnection(acc.url, acc.username, acc.pwd);
+        }
         if(!SQLDataRegistrar.doesDBexists(acc.dbName)){
             out.println("Database does not exist,\n Don't Worry, We will create one right now!");
             SQLDataRegistrar.main(new String[]{""});
@@ -125,6 +135,7 @@ public class Economy_Data_Visualization {
             }
         }
         out.print("\n\n Thanks for using our Visualization Software :)");
+        System.exit(0);
     }
 
     private static ArrayList<country> Delete_Country(ArrayList<country> countries) {
