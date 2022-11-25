@@ -11,6 +11,7 @@ public class DeleteJDBC
     public static void delRec(String tName, String cc)
     {
         try {
+            Connection c = ConnectionProvider.getConnection(turl, acc.username, acc.pwd);
             Statement st = c.createStatement();
             String s = "delete from "+tName+" where Country_Code = '"+cc+"'";
 
@@ -26,6 +27,7 @@ public class DeleteJDBC
     public static void delTable(String tName)
     {
         try {
+            Connection c = ConnectionProvider.getConnection(turl, acc.username, acc.pwd);
             Statement st = c.createStatement();
             String s = "drop table "+tName;
 
